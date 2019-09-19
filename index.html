@@ -16,8 +16,58 @@
 
     <title>Hackathon - SpaceX Launch Event</title>
     <script>
-
             // Add your JavaScript code here
+            function validateUser() {
+                let fullName=document.getElementById('fName').value;
+                let userEmail=document.getElementById('email').value;
+                let mobileNumber=document.getElementById('mNumber').value;
+                let company=document.getElementById('com').value;
+                let state=document.getElementById('st').value;
+
+                // full name
+                let fullName=fullName.split(" ");
+                let fullname="";
+                for(let i=0; i<fullName.length; i++) {
+                    fullname+=fullName[i].charAt[0].toUpperCase();
+                }
+                validateEmail(userEmail);
+                validatePhone(mobileNumber);
+                validateCompany(company);
+                validateState(state);
+
+                document.getElementById("output").innerHTML=fullname;
+            }
+            function validateEmail(userEmail){
+                userEmail.split(" ");
+                for(let i=0; i<userEmail.length; i++) {
+                    if (userEmail[i].includes("@") && userEmail[i].includes(".")) {
+                        if(userEmail[i].indexOf("@") > userEmail[i].indexOf(".")){
+                            return false;
+                        }
+                    }
+                } return true;
+            }
+
+            function validatePhone(mobileNumber){
+                mobileNumber.split("");
+                for(let i=3; i<mobileNumber.length; i=i+4) {
+                    if(mobileNumber[i] !== "-") {
+                        return false;
+                    }
+                } return true;
+            }
+
+            function validateCompany(company){
+                return true;
+            }
+            function validateState(state) {
+
+                if(state===state.toUpperCase()){
+                return true;
+                }
+                    
+            } 
+        
 
     </script>
 </head>
@@ -37,26 +87,26 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label>Full name</label>
-                    <input type="{{FILL_OUT}}" class="form-control" id="{{FILL_OUT}}" />
+                    <input type="text" class="form-control" id="fName" />
                 </div>
                 <div class="form-group">
                     <label>Email</label>
-                    <input type="{{FILL_OUT}}" class="form-control" id="{{FILL_OUT}}" />
+                    <input type="text" class="form-control" id="email" />
                 </div>
                 <div class="form-group">
                     <label>Mobile Number</label>
-                    <input type="{{FILL_OUT}}" class="form-control" id="{{FILL_OUT}}" placeholder="nnn-nnn-nnnn" />
+                    <input type="text" class="form-control" id="mNumber" placeholder="nnn-nnn-nnnn" />
                 </div>
                 <div class="form-group">
                     <label>Company</label>
-                    <input type="{{FILL_OUT}}" class="form-control" id="{{FILL_OUT}}" />
+                    <input type="text" class="form-control" id="com" />
                 </div>
                 <div class="form-group">
                     <label>State</label>
-                    <input type="{{FILL_OUT}}" class="form-control" id="{{FILL_OUT}}" />
+                    <input type="text" class="form-control" id="st" />
                 </div>
                 <div class="form-group">
-                    <input type="{{FILL_OUT}}" class="btn btn-primary" value="Launch" />
+                    <input type="button" class="btn btn-primary" value="Launch" onclick="validateUser()" />
                 </div>
             </div>
             <div class="col-md-6">
